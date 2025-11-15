@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>E-Commerce Web App</title>
+
+    <!-- ===== CSS STYLES INSIDE SAME FILE ===== -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background: #f4f4f4;
+        }
+        nav {
+            background: #333;
+            padding: 15px;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        section {
+            padding: 30px;
+            background: white;
+            margin: 20px;
+            border-radius: 8px;
+        }
+        input, textarea {
+            width: 95%;
+            padding: 10px;
+            margin-bottom: 12px;
+            border: 1px solid #555;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px 15px;
+            background: #333;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .item {
+            background: #eaeaea;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 6px;
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- ================= NAVIGATION MENU ================= -->
+<nav>
+    <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#products">Product Items</a></li>
+        <li><a href="#orders">Orders</a></li>
+        <li><a href="#wishlist">Wishlist</a></li>
+        <li><a href="#reviews">Reviews</a></li>
+        <li><a href="#customercare">Customer Care</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#contact">Contact Us</a></li>
+        <li><a href="#login">Login</a></li>
+        <li><a href="#register">Register</a></li>
+    </ul>
+</nav>
+
+<section id="home">
+    <h2>Welcome to MyShop E-Commerce</h2>
+    <p>Browse products, place orders and enjoy shopping!</p>
+</section>
+
+<section id="products">
+    <h2>Product Items</h2>
+    <div class="item"><b>Smart Watch</b> - ₹1499</div>
+    <div class="item"><b>Bluetooth Earbuds</b> - ₹799</div>
+    <div class="item"><b>Power Bank</b> - ₹1299</div>
+</section>
+
+<section id="orders">
+    <h2>Your Orders</h2>
+    <div class="item"><b>Product:</b> Laptop Bag | <b>Status:</b> Delivered</div>
+    <div class="item"><b>Product:</b> Smart Watch | <b>Status:</b> Shipped</div>
+</section>
+
+<section id="wishlist">
+    <h2>Wishlist</h2>
+    <div class="item"><b>Wireless Mouse</b></div>
+    <div class="item"><b>Gaming Keyboard</b></div>
+</section>
+
+<section id="reviews">
+    <h2>Comments & Reviews</h2>
+    <div class="item"><b>John:</b> Excellent product!</div>
+    <div class="item"><b>Anita:</b> Fast delivery. Value for money!</div>
+</section>
+
+<section id="customercare">
+    <h2>Customer Care</h2>
+    <p>📞 1800-123-000</p>
+    <p>📧 support@myshop.com</p>
+    <textarea placeholder="Describe your issue..."></textarea>
+    <button>Submit</button>
+</section>
+
+<section id="about">
+    <h2>About Us</h2>
+    <p>We are a leading e-commerce platform offering high-quality products at best prices.</p>
+</section>
+
+<section id="contact">
+    <h2>Contact Us</h2>
+    <textarea placeholder="Your message..."></textarea>
+    <button>Send</button>
+</section>
+
+<section id="login">
+    <h2>Login</h2>
+    <input type="email" id="loginEmail" placeholder="Email">
+    <input type="password" id="loginPassword" placeholder="Password">
+    <button onclick="login()">Login</button>
+    <p id="loginMsg"></p>
+</section>
+<section id="register">
+    <h2>Register</h2>
+    <input type="text" id="name" placeholder="Full Name">
+    <input type="email" id="email" placeholder="Email">
+    <input type="password" id="password" placeholder="Password">
+    <input type="password" id="confirmPassword" placeholder="Confirm Password">
+    <button onclick="register()">Register</button>
+    <p id="regMsg"></p>
+</section>
+
+<script>
+function register() {
+    let name = document.getElementById("name").value.trim();
+    let email = document.getElementById("email").value.trim();
+    let pass = document.getElementById("password").value.trim();
+    let cpass = document.getElementById("confirmPassword").value.trim();
+    let msg = document.getElementById("regMsg");
+
+    if (!name || !email || !pass || !cpass) {
+        msg.innerHTML = "All fields are required!";
+        msg.style.color = "red";
+        return;
+    }
+    if (!email.includes("@")) {
+        msg.innerHTML = "Invalid email!";
+        msg.style.color = "red";
+        return;
+    }
+    if (pass !== cpass) {
+        msg.innerHTML = "Passwords do not match!";
+        msg.style.color = "red";
+        return;
+    }
+    msg.innerHTML = "Registration Successful!";
+    msg.style.color = "green";
+}
+
+function login() {
+    let email = document.getElementById("loginEmail").value.trim();
+    let pass = document.getElementById("loginPassword").value.trim();
+    let msg = document.getElementById("loginMsg");
+
+    if (!email || !pass) {
+        msg.innerHTML = "All fields are required!";
+        msg.style.color = "red";
+        return;
+    }
+    msg.innerHTML = "Login Successful!";
+    msg.style.color = "green";
+}
+</script>
+
+</body>
+</html>
